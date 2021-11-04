@@ -15,6 +15,7 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Models
         public DateTime? FechaUltimaModificacion { get; set; }
 
         public virtual Dosi FkDosis { get; set; }
+        public virtual Paciente FkPaciente { get; set; }
         public virtual Vacuna FkVacuna { get; set; }
     }
 }

@@ -73,14 +73,16 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories
             return vacuna;
         }
 
-        public Task<IEnumerable<VacunacionCovid19>> GetVacunacionCovid19Async()
+        public async Task<IEnumerable<VacunacionCovid19>> GetVacunacionCovid19Async()
         {
-            throw new NotImplementedException();
+            var vacunaciones = await _context.VacunacionCovid19s.Include(v => v.FkPaciente).Include(v => v.FkVacuna).Include(v => v.FkDosis).ToListAsync();
+            return vacunaciones;
         }
 
-        public Task<VacunacionCovid19> GetVacunacionCovid19ByIdAsync(int id)
+        public async Task<VacunacionCovid19> GetVacunacionCovid19ByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var vacunacion = await _context.VacunacionCovid19s.Include(v => v.FkPaciente).Include(v => v.FkVacuna).Include(v => v.FkDosis).FirstOrDefaultAsync(v => v.VacunacionId == id);
+            return vacunacion;
         }
 
         public Task<IEnumerable<VacunacionCovid19>> GetVacunacionCovid19ByPacienteIdAsync(int id)

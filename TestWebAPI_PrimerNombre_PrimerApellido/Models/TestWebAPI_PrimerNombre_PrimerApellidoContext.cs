@@ -98,12 +98,17 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Models
                 entity.HasOne(d => d.FkDosis)
                     .WithMany(p => p.VacunacionCovid19s)
                     .HasForeignKey(d => d.FkDosisId)
-                    .HasConstraintName("FK_Vacunacion_Covid19_Dosis");
+                    .HasConstraintName("FKDosis");
+
+                entity.HasOne(d => d.FkPaciente)
+                    .WithMany(p => p.VacunacionCovid19s)
+                    .HasForeignKey(d => d.FkPacienteId)
+                    .HasConstraintName("FKPaciente");
 
                 entity.HasOne(d => d.FkVacuna)
                     .WithMany(p => p.VacunacionCovid19s)
                     .HasForeignKey(d => d.FkVacunaId)
-                    .HasConstraintName("FK_Vacunacion_Covid19_Vacunas");
+                    .HasConstraintName("FKVacuna");
             });
 
             OnModelCreatingPartial(modelBuilder);

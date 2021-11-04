@@ -14,7 +14,8 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Dtos
         public DateTime? FechaCreacion { get; set; }
         public DateTime? FechaUltimaModificacion { get; set; }
 
-        public DosisDto FkDosis { get; set; }
-        public VacunaDto FkVacuna { get; set; }
+        public virtual DosisDto FkDosis { get; set; }
+        public virtual PacienteDto FkPaciente { get; set; }
+        public virtual VacunaDto FkVacuna { get; set; }
     }
 }
