@@ -12,10 +12,17 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Mapper
     {
         public AutoMapperProfiles()
         {
+            // -- -- Dosis Mapper Profiles -- --
             //PUT / POST
             CreateMap<DosisDto, Dosi>();
             //GET 
             CreateMap<Dosi, DosisDto>();
+
+            // -- -- Vacuna Mapper Profiles -- --
+            //PUT / POST
+            CreateMap<VacunaDto, Vacuna>();
+            //GET 
+            CreateMap<Vacuna, VacunaDto>();
 
         }
     }
