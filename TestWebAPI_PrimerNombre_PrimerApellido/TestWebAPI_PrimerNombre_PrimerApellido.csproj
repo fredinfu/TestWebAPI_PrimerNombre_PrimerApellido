@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+    <Folder Include="Mapper\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>
