@@ -3,14 +3,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestWebAPI_PrimerNombre_PrimerApellido.Repositories.Interfaces;
 
 namespace TestWebAPI_PrimerNombre_PrimerApellido.Controllers
 {
-    public class DosisController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class DosisController : ControllerBase
     {
-        public IActionResult Index()
+        private readonly IApiRepository _repository;
+        public DosisController(IApiRepository repository)
         {
-            return View();
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var dosis = await _repository.GetDosisAsync();
+
+            return Ok(dosis);
         }
     }
 }

@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestWebAPI_PrimerNombre_PrimerApellido.Models;
+using TestWebAPI_PrimerNombre_PrimerApellido.Repositories;
+using TestWebAPI_PrimerNombre_PrimerApellido.Repositories.Interfaces;
 
 namespace TestWebAPI_PrimerNombre_PrimerApellido
 {
@@ -32,6 +34,7 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido
                 
             });
             services.AddControllers();
+            services.AddScoped<IApiRepository, ApiRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestWebAPI_PrimerNombre_PrimerApellido", Version = "v1" });
