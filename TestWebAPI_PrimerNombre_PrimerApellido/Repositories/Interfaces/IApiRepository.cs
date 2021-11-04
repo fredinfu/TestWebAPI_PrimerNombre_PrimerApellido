@@ -20,7 +20,7 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories.Interfaces
         Task<Dosi> GetDosisByDescripcion(string descripcion);
 
         Task<IEnumerable<Paciente>> GetPacientesAsync();
-        Task<Paciente> GetPacientesByIdAsync(int id);
+        Task<Paciente> GetPacienteByIdAsync(int id);
         Task<Paciente> GetPacientesByExpediente(string expediente);
 
         Task<IEnumerable<VacunacionCovid19>> GetVacunacionCovid19Async();

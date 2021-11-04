@@ -55,7 +55,7 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories
             return paciente;
         }
 
-        public async Task<Paciente> GetPacientesByIdAsync(int id)
+        public async Task<Paciente> GetPacienteByIdAsync(int id)
         {
             var paciente = await _context.Pacientes.FirstOrDefaultAsync(p => p.PacienteId == id);
             return paciente;

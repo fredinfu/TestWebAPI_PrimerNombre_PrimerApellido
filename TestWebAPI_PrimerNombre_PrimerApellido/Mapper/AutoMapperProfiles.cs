@@ -24,6 +24,12 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Mapper
             //GET 
             CreateMap<Vacuna, VacunaDto>();
 
+            // -- -- Paciente Mapper Profiles -- --
+            //PUT / POST
+            CreateMap<PacienteDto, Paciente>();
+            //GET 
+            CreateMap<Paciente, PacienteDto>();
+
         }
     }
 }
