@@ -27,19 +27,19 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories
 
         public async Task<IEnumerable<Dosi>> GetDosisAsync()
         {
-            var dosis = await _context.Doses.ToListAsync();
+            var dosis = await _context.Doses.Where(d => d.Estado == true).ToListAsync();
             return dosis;
         }
 
         public async Task<Dosi> GetDosisByDescripcion(string descripcion)
         {
-            var dosi = await _context.Doses.FirstOrDefaultAsync(d => d.Descripcion == descripcion);
+            var dosi = await _context.Doses.FirstOrDefaultAsync(d => d.Descripcion == descripcion && d.Estado == true);
             return dosi;
         }
 
         public async Task<Dosi> GetDosisByIdAsync(int id)
         {
-            var dosi = await _context.Doses.FirstOrDefaultAsync(d => d.DosisVacunaId == id);
+            var dosi = await _context.Doses.FirstOrDefaultAsync(d => d.DosisVacunaId == id && d.Estado == true);
             return dosi;
         }
 
@@ -63,13 +63,13 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories
 
         public async Task<Vacuna> GetVacunaByDescripcion(string descripcion)
         {
-            var vacuna = await _context.Vacunas.FirstOrDefaultAsync(v => v.Descripcion == descripcion);
+            var vacuna = await _context.Vacunas.FirstOrDefaultAsync(v => v.Descripcion == descripcion && v.Estado == true);
             return vacuna;
         }
 
         public async Task<Vacuna> GetVacunaByIdAsync(int id)
         {
-            var vacuna = await _context.Vacunas.FirstOrDefaultAsync(p => p.VacunaId == id);
+            var vacuna = await _context.Vacunas.FirstOrDefaultAsync(v => v.VacunaId == id && v.Estado == true);
             return vacuna;
         }
 
@@ -90,7 +90,7 @@ namespace TestWebAPI_PrimerNombre_PrimerApellido.Repositories
 
         public async Task<IEnumerable<Vacuna>> GetVacunasAsync()
         {
-            var vacunas = await _context.Vacunas.ToListAsync();
+            var vacunas = await _context.Vacunas.Where(v => v.Estado == true).ToListAsync();
             return vacunas;
         }
 
